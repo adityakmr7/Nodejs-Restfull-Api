@@ -5,6 +5,11 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
 
+/*
+* to make upload publically available
+*/ 
+app.use('/uploads', express.static('uploads'));
+
 const conn = mongoose.connect('mongodb://localhost:27017/alecadApi', {useNewUrlParser: true});
 if(!conn) {
     console.log('mongoose not connected');
