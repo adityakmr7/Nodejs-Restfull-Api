@@ -5,6 +5,8 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
 
+
+const userRoutes = require('./api/routes/user');
 /*
 * to make upload publically available
 */ 
@@ -62,8 +64,11 @@ app.use((error, req, res, next) => {
 });
 */
 
-
-
+/**
+ * Routes
+ */
+app.use('/user', userRoutes);
 app.use('/products', productRoutes);
 app.use('/orders', orderRoutes);
+
 module.exports = app;
